@@ -21,7 +21,7 @@ export class FreshdeskWidgetService {
 
     script.type = 'text/javascript';
     script.async = true;
-    script.src = `https://widget.freshworks.com/widgets/${this.ngxFreshdeskWidgetWebwidgetConfig.widgetId}.js`;
+    script.src = `https://euc-widget.freshworks.com/widgets/${this.ngxFreshdeskWidgetWebwidgetConfig.widgetId}.js`;
 
     window.fwSettings = {
       widget_id: ngxFreshdeskWidgetWebwidgetConfig.widgetId,
