@@ -11,8 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: creating .npmrc file
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.READ_GITHUB_PACKAGES_TOKEN }}" >> .npmrc
+      - run: npm run build
+      - run: cd dist/freshdesk-widget
+      - run: touch .npmrc
+      - run: |
+          echo "@estafsar:registry=https://npm.pkg.github.com
+          //npm.pkg.github.com/:_authToken=${{ secrets.READ_GITHUB_PACKAGES_TOKEN }}" >> .npmrc
           cat .npmrc
           pwd
       - uses: actions/setup-node@v1
