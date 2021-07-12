@@ -30,6 +30,8 @@ jobs:
           cat .npmrc
           pwd
           ls -aR
-      - run: npm publish
+      - run: |
+         cd dist/
+         npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
