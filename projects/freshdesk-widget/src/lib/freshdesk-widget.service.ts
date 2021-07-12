@@ -5,9 +5,7 @@ function getWindow(): any {
   return window;
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class FreshdeskWidgetService {
   constructor(
     private ngxFreshdeskWidgetWebwidgetConfig?: FreshdeskWidgetModel
