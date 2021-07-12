@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        name: build package
-      - run: |
+      - name: install deps
+        run: npm ci
+      - name: build package
+        run: |
           npm run build
           cd dist/freshdesk-widget
           touch .npmrc
