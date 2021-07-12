@@ -15,7 +15,7 @@ jobs:
       - name: build package
         run: |
           npm run build
-          cd dist/freshdesk-widget
+          cd dist
           touch .npmrc
           echo "@estafsar:registry=https://npm.pkg.github.com
           //npm.pkg.github.com/:_authToken=${{ secrets.READ_GITHUB_PACKAGES_TOKEN }}" >> .npmrc
@@ -43,7 +43,7 @@ jobs:
       - name: build package
         run: |
           npm run build
-          cd dist/freshdesk-widget
+          cd dist
           touch .npmrc
           echo "@estafsar:registry=https://npm.pkg.github.com
           //npm.pkg.github.com/:_authToken=${{ secrets.READ_GITHUB_PACKAGES_TOKEN }}" >> .npmrc
