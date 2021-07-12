@@ -39,7 +39,7 @@ jobs:
       - name: install deps
         run: npm ci
       - name: build package
-      - run: |
+        run: |
           npm run build
           cd dist/freshdesk-widget
           touch .npmrc
