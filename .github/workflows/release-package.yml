@@ -6,28 +6,8 @@ on:
       - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: install deps
-        run: npm ci
-      - name: build package
-        run: |
-          npm run build
-          cd dist
-          touch .npmrc
-          echo "@estafsar:registry=https://npm.pkg.github.com
-          //npm.pkg.github.com/:_authToken=${{ secrets.READ_GITHUB_PACKAGES_TOKEN }}" >> .npmrc
-          cat .npmrc
-          pwd
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: npm ci
 
   publish-gpr:
-    needs: build
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -49,6 +29,6 @@ jobs:
           //npm.pkg.github.com/:_authToken=${{ secrets.READ_GITHUB_PACKAGES_TOKEN }}" >> .npmrc
           cat .npmrc
           pwd
-          npm publish
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
