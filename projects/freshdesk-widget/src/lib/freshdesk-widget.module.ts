@@ -1,16 +1,25 @@
-import { NgModule } from '@angular/core';
-import { FreshdeskWidgetComponent } from './freshdesk-widget.component';
 
+import { NgModule, ModuleWithProviders, Type } from '@angular/core';
+import { FreshdeskWidgetModel } from './freshdesk-widget.model';
+import { FreshdeskWidgetService } from './freshdesk-widget.service';
 
+@NgModule()
+export class FreshdeskWidgetModule {
+  static forRoot(
+    FreshdeskWidgetConfig: Type<FreshdeskWidgetModel>
+  ): ModuleWithProviders<FreshdeskWidgetModule> {
+    return {
+      ngModule: FreshdeskWidgetModule,
+      providers: [
+        { provide: FreshdeskWidgetModel, useClass: FreshdeskWidgetConfig },
+        {
+          provide: FreshdeskWidgetService,
+          useClass: FreshdeskWidgetService,
+          deps: [FreshdeskWidgetModel],
+        },
+      ],
+    };
+  }
+}
 
-@NgModule({
-  declarations: [
-    FreshdeskWidgetComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    FreshdeskWidgetComponent
-  ]
-})
-export class FreshdeskWidgetModule { }
+export { FreshdeskWidgetService, FreshdeskWidgetModel };

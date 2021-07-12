@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-freshdesk-widget',
+  selector: 'lib-freshdesk',
   template: `
     <p>
-      freshdesk-widget works!
+      freshdesk works!
     </p>
   `,
   styles: [

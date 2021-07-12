@@ -1,5 +1,5 @@
 /*
- * Public API Surface of freshdesk-widget
+ * Public API Surface of freshdesk
  */
 
 export * from './lib/freshdesk-widget.service';
