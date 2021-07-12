@@ -5,9 +5,13 @@ function getWindow(): any {
   return window;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class FreshdeskWidgetService {
-  constructor(private ngxFreshdeskWidgetWebwidgetConfig?: FreshdeskWidgetModel) {
+  constructor(
+    private ngxFreshdeskWidgetWebwidgetConfig?: FreshdeskWidgetModel
+  ) {
     if (!this.ngxFreshdeskWidgetWebwidgetConfig.widgetId) {
       throw new Error(
         'Missing widgetId. Please set in app config via FreshdeskWidgetWidgetProvider'
