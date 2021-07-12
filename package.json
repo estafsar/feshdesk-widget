@@ -14,9 +14,13 @@
   "ngPackage": {
     "lib": {
       "entryFile": "projects/freshdesk-widget/src/public-api.ts"
-    }
+    },
+    "allowedNonPeerDependencies":["@angular/compiler"]
   },
   "repository": "git://github.com/estafsar/feshdesk-widget.git",
+  "dependencies": {
+    "@angular/compiler": "~11.2.11"
+  },
   "peerDependencies": {
     "@angular/compiler": "~11.2.11",
     "@angular/common": "~11.2.11",

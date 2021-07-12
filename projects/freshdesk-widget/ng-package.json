@@ -3,5 +3,6 @@
   "dest": "../../dist/freshdesk-widget",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+    "allowedNonPeerDependencies": ["@angular/compiler"]
 }
