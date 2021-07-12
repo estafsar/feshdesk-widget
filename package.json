@@ -4,15 +4,20 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build freshdesk-widget",
+    "build": "ng-packagr -p package.json",
     "test": "ng test",
     "lint": "ng lint"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
+   "ngPackage": {
+    "lib": {
+      "entryFile": "projects/freshdesk-widget/src/public-api.ts"
+    }
+  },
   "repository": "git://github.com/estafsar/feshdesk-widget.git",
-  "dependencies": {
+  "peerDependencies": {
     "@angular/animations": "~11.2.11",
     "@angular/common": "~11.2.11",
     "@angular/compiler": "~11.2.11",
