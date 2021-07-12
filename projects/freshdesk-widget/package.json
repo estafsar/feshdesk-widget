@@ -1,17 +1,16 @@
 {
   "name": "@estafsar/freshdesk-widget",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "repository": "git://github.com/estafsar/feshdesk-widget.git",
   "peerDependencies": {
-    "@angular/common": "~10.0.0",
-    "@angular/core": "~10.0.0"
+    "@angular/common": "10.0.2",
+    "@angular/core": "10.0.2"
   },
   "dependencies": {
-    "tslib": "^2.0.0",
-    "@angular/compiler": "~10.0.0"
+    "tslib": "^2.0.0"
   },
   "main": "bundles/freshdesk-widget.umd.js",
   "module": "fesm2015/freshdesk-widget.js",
