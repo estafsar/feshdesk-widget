@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: build package
-      - run: npm run build
+        name: build package
+        run: npm run build
       - name: cd to dist folder
-      - run: cd dist/freshdesk-widget
+        run: cd dist/freshdesk-widget
       - name: creating .npmrc file
-      - run: touch .npmrc
+        run: touch .npmrc
       - name: write .npmrc
-      - run: |
+        run: |
           echo "@estafsar:registry=https://npm.pkg.github.com
           //npm.pkg.github.com/:_authToken=${{ secrets.READ_GITHUB_PACKAGES_TOKEN }}" >> .npmrc
           cat .npmrc
@@ -41,20 +41,20 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
       - name: install deps
-      - run: npm ci
+        run: npm ci
       - name: build package
-      - run: npm run build
+        run: npm run build
       - name: cd to dist folder
-      - run: cd dist/freshdesk-widget
+        run: cd dist/freshdesk-widget
       - name: creating .npmrc file
-      - run: touch .npmrc
+        run: touch .npmrc
       - name: write .npmrc
-      - run: |
+        run: |
           echo "@estafsar:registry=https://npm.pkg.github.com
           //npm.pkg.github.com/:_authToken=${{ secrets.READ_GITHUB_PACKAGES_TOKEN }}" >> .npmrc
           cat .npmrc
           pwd
       - name: publish the package
-      - run: npm publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
