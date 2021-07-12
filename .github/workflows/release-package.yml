@@ -49,7 +49,6 @@ jobs:
           //npm.pkg.github.com/:_authToken=${{ secrets.READ_GITHUB_PACKAGES_TOKEN }}" >> .npmrc
           cat .npmrc
           pwd
-      - name: publish the package
-        run: npm publish
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
