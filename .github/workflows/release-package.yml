@@ -19,7 +19,7 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: "@estafsar"
       - run: |
-          npm install
+          npm run build
           cd dist/
           npm publish
         env:
