@@ -1,35 +1,26 @@
 name: Node.js Package
-
 on:
   push:
     branches:
       - master
-
 jobs:
-
-  publish-gpr:
+  build:
     runs-on: ubuntu-latest
     permissions:
-      packages: write
       contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v2
         with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-      - name: install deps
-        run: npm ci
-      - name: build package
-        run: |
-          npm run build
-          cd dist
-          touch .npmrc
-          echo "@estafsar:registry=https://npm.pkg.github.com
-          //npm.pkg.github.com/:_authToken=${{ secrets.READ_GITHUB_PACKAGES_TOKEN }}" >> .npmrc
-          cat .npmrc
-          pwd
-          ls -aR
-      - run: npm publish
+          node-version: "14.x"
+          registry-url: "https://npm.pkg.github.com"
+          # Defaults to the user or organization that owns the workflow file
+          scope: "@estafsar"
+      - run: |
+          npm install
+          cd dist/
+          npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
